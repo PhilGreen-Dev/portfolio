@@ -30,12 +30,29 @@ body {
 #navbar nav {
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
 	padding: 10px 20px;
 }
 
 #logo {
 	height: 50px;
 	margin-right: 20px;
+}
+
+.hamburger {
+	display: none; /* Hidden by default */
+	flex-direction: column;
+	cursor: pointer;
+	padding: 10px;
+	z-index: 2000; /* Ensure hamburger is on top */
+}
+
+.hamburger span {
+	width: 25px;
+	height: 3px;
+	background-color: var(--text-color);
+	margin: 4px 0;
+	transition: all 0.3s ease;
 }
 
 #navbar nav ul {
@@ -161,10 +178,10 @@ h3 {
 
 .about-card,
 .tools-card {
-	display: flex; /* Added flexbox for alignment */
-	flex-direction: column; /* Align content vertically */
-	align-items: center; /* Center align horizontally */
-	justify-content: center; /* Center align vertically */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 	flex: 1;
 	margin: 10px;
 	padding: 20px;
@@ -189,7 +206,7 @@ h3 {
 .devicons {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: center; /* Center icons horizontally */
+	justify-content: center;
 	align-items: center;
 	gap: 15px;
 	margin-top: 10px;
@@ -285,19 +302,47 @@ footer {
 	}
 }
 
+/* Improved media query for mobile view */
 @media (max-width: 768px) {
-	#navbar nav {
-		flex-direction: column;
+	.hamburger {
+		display: flex; /* Show hamburger button on smaller screens */
 	}
 
 	#navbar nav ul {
+		display: none; /* Hide nav menu by default on mobile */
 		flex-direction: column;
-		align-items: center;
-		margin-top: 10px;
+		width: 100%;
+		background-color: var(--header-color);
+		position: absolute;
+		top: 60px; /* Adjust depending on your header height */
+		left: 0;
+		padding: 10px 0;
+		z-index: 1500; /* Ensure it displays over content but under hamburger */
+	}
+
+	#navbar nav ul.active {
+		display: flex; /* Show nav menu when active */
 	}
 
 	#navbar nav ul li {
 		margin: 10px 0;
+		text-align: center;
+	}
+
+	.hamburger.active span:nth-child(1) {
+		transform: rotate(45deg);
+		position: relative;
+		top: 8px;
+	}
+
+	.hamburger.active span:nth-child(2) {
+		opacity: 0;
+	}
+
+	.hamburger.active span:nth-child(3) {
+		transform: rotate(-45deg);
+		position: relative;
+		top: -8px;
 	}
 
 	.home-content {
@@ -308,6 +353,14 @@ footer {
 	.text-content {
 		padding-right: 0;
 		margin-bottom: 40px;
+	}
+
+	.text-content h1 {
+		font-size: 2rem;
+	}
+
+	.tagline {
+		font-size: 1rem;
 	}
 
 	#about {
@@ -324,5 +377,15 @@ footer {
 	#projects .project {
 		width: 100%;
 		margin-bottom: 20px;
+	}
+
+	.social-icons a {
+		font-size: 30px;
+		margin: 0 5px;
+	}
+
+	.cta-button {
+		width: 100%;
+		margin-bottom: 10px;
 	}
 }
