@@ -170,7 +170,7 @@ h3 {
 }
 
 #home-image {
-	max-width: 100%;
+	max-width: 140%;
 	height: auto;
 	border-radius: 10px;
 	animation: fadeInRight 1s ease-out;
@@ -272,6 +272,40 @@ h3 {
 #projects h3 {
 	color: var(--highlight-color);
 	margin-bottom: 20px;
+}
+
+.project-image {
+	text-align: center;
+	margin: 20px 0;
+}
+
+.project-image img {
+	max-width: 100%;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-image img:hover {
+	transform: scale(1.05);
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.project-button {
+	display: inline-block;
+	margin-top: 15px;
+	padding: 12px 20px;
+	background-color: var(--highlight-color);
+	color: var(--background-color);
+	text-decoration: none;
+	border-radius: 5px;
+	font-weight: bold;
+	transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.project-button:hover {
+	background-color: #1c8a87;
+	transform: translateY(-2px);
 }
 
 footer {
